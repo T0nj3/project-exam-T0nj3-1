@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Lys bakgrunn for hele siden */
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 24px;
+    color: #333;
+}
+
+.menu {
+    display: flex;
+    gap: 15px; /* Avstand mellom menylenkene */
+}
+
+.menu a {
+    color: #333;
+    text-decoration: none;
+}
+
+.hamburger {
+    cursor: pointer;
+}
+
+.side-menu {
+    display: none; /* Skjult som standard */
+}
+
+.background {
+    background: url('../assets/Blog-posts-img/Airplane.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: calc(100vh - 150px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0; 
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; 
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center; /* Sentrer overskriften */
+}
+
+label {
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%; /* Få inputene til å bruke 100% av bredden */
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Få knappen til å bruke 100% av bredden */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    text-align: center; /* Sentrer teksten */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 10px;
+}
