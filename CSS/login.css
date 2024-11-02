@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9; 
+    background-color: #f4f4f9; /* Lys bakgrunn for hele siden */
 }
 
 header {
@@ -18,7 +19,6 @@ header {
 
 .menu {
     display: flex;
-    gap: 15px; 
 }
 
 .menu a {
@@ -35,7 +35,6 @@ header {
 }
 
 .background {
-    background: url('https://t0nj3.github.io/project-exam-T0nj3-1/assets/Airplane.png') no-repeat center center fixed;
     background-size: cover;
     min-height: calc(100vh - 150px); 
     display: flex;
@@ -57,7 +56,6 @@ h2 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
-    text-align: center; 
 }
 
 label {
@@ -75,7 +73,6 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    width: 100%; 
 }
 
 button {
@@ -87,7 +84,6 @@ button {
     background-color: #007bff;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 100%; 
 }
 
 button:hover {
@@ -98,7 +94,6 @@ p {
     margin-top: 10px;
     font-size: 14px;
     color: #555;
-    text-align: center; 
 }
 
 a {
@@ -124,4 +119,3 @@ a:hover {
 .footer-section {
     flex: 1;
     margin: 0 10px;
-}
