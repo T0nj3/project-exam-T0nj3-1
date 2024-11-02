@@ -19,8 +19,8 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
         const data = await response.json();
         console.log("Login response data:", data);
   
-        if (data.data && data.data.accessToken) {  // Oppdatert linje for å hente riktig vei til accessToken
-          localStorage.setItem("accessToken", data.data.accessToken);  // Lagre accessToken riktig
+        if (data.data && data.data.accessToken) {  
+          localStorage.setItem("accessToken", data.data.accessToken);  
           window.location.href = "../post/index.html";
         } else {
           alert("Login failed: No access token received.");
