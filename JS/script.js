@@ -19,7 +19,7 @@ async function displayLatestPosts() {
             const postElement = document.createElement('div');
             postElement.classList.add('blog-post');
             postElement.innerHTML = `
-                <a href="/HTML/one-post.html?id=${detailedPost.id}">
+                <a href="./HTML/one-post.html?id=${detailedPost.id}">
                     <img src="${detailedPost.media.url}" alt="${detailedPost.media.alt}">
                     <h2>${detailedPost.title}</h2>
                 </a>
