@@ -4,6 +4,9 @@ let allPosts = [];
 let carouselPosts = [];
 let currentIndex = 0;
 
+const isGithubPages = window.location.hostname.includes("github.io");
+const baseURL = isGithubPages ? "/project-exam-T0nj3-1" : "";
+
 async function displayLatestPosts() {
     allPosts = await fetchPosts();
     const blogContainer = document.getElementById('blogContainer');
@@ -19,7 +22,7 @@ async function displayLatestPosts() {
             const postElement = document.createElement('div');
             postElement.classList.add('blog-post');
             postElement.innerHTML = `
-                <a href="../HTML/one-post.html?id=${detailedPost.id}">
+                <a href="${baseURL}/HTML/one-post.html?id=${detailedPost.id}">
                     <img src="${detailedPost.media.url}" alt="${detailedPost.media.alt}">
                     <h2>${detailedPost.title}</h2>
                 </a>
@@ -43,7 +46,7 @@ async function displayPopularPosts() {
             const postElement = document.createElement('div');
             postElement.classList.add('popular-post');
             postElement.innerHTML = `
-                <a href="../HTML/one-post.html?id=${detailedPost.id}">
+                <a href="${baseURL}/HTML/one-post.html?id=${detailedPost.id}">
                     <img src="${detailedPost.media.url}" alt="${detailedPost.media.alt}">
                     <h2>${detailedPost.title}</h2>
                     <p>${detailedPost.shortDescription}</p>
@@ -83,14 +86,12 @@ async function renderCarousel() {
     const introduce = document.querySelector('.dynamic-carousel-container .introduce');
     const ordinalNumber = document.querySelector('.dynamic-carousel-container .ordinal-number h2');
 
-
     if (!mainImageContainer || !introduce || !ordinalNumber) {
         console.error("Carousel elements not found");
         return;
     }
 
     const currentPost = carouselPosts[currentIndex];
-    
 
     if (!currentPost || !currentPost.media || !currentPost.media.url) {
         console.error("Current post data is missing required fields");
@@ -112,15 +113,12 @@ async function renderCarousel() {
         ordinalNumber.textContent = `0${currentIndex + 1}`;
 
         mainImageContainer.onclick = () => {
-            window.location.href = `../HTML/one-post.html?id=${currentPost.id}`;
+            window.location.href = `${baseURL}/HTML/one-post.html?id=${currentPost.id}`;
         };
 
         mainImageContainer.classList.add("show");
     }, 100);
 }
-
-
-
 
 function showNextSlide() {
     currentIndex = (currentIndex + 1) % carouselPosts.length;
@@ -145,8 +143,6 @@ function startCarousel() {
         console.error("Carousel buttons not found");
     }
 }
-
-
 
 document.addEventListener("DOMContentLoaded", async () => {
     await displayLatestPosts();
