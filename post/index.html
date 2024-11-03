@@ -4,30 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/header.css">
     <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <script src="../JS/header.js"></script>
+
   <title>Posts</title>
 </head>
 <body>
-    <header>
-        <h1 class="logo"><a href="../index.html">Whispers of the World</a></h1>
-        <nav class="menu">
-            <a href="/blog.html">Blog</a>
-            <a href="/about.html">About</a>
-            <a href="./account/login.html">Login</a>
-        </nav>
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+
+  <header>
+    <h1 class="logo"><a href="">Whispers of the World</a></h1>
+    <nav class="menu" id="navMenu">
+        <a href="/blog.html">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="./account/login.html" id="loginLink">Login</a>
+    </nav>
+    <div class="user-menu" id="userMenu" style="display:none;">
+        <span id="username"></span>
+        <div class="dropdown-content" id="dropdownContent" style="display:none;">
+            <a href="../index.html" id="logout">Log out</a>
         </div>
-        <div class="side-menu" id="sideMenu">
-            <span class="close" onclick="toggleMenu()">&times;</span>
-            <a href="/blog.html">Blog</a>
-            <a href="/about.html">About</a>
-            <a href="/login.html">Login</a>
-        </div>
-    </header>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="side-menu" id="sideMenu">
+        <span class="close" onclick="toggleMenu()">&times;</span>
+        <a href="/blog.html">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="/index.html" id="loginLink">Login</a>
+    </div>
+</header>
+
+
+
+
+
   <div class="tabs">
     <button class="tab">Posts</button>
     <button class="tab">Drafts</button>

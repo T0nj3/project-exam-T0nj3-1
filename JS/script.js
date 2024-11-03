@@ -4,9 +4,6 @@ let allPosts = [];
 let carouselPosts = [];
 let currentIndex = 0;
 
-const isGithubPages = window.location.hostname.includes("github.io");
-const baseURL = isGithubPages ? "/project-exam-T0nj3-1" : "";
-
 async function displayLatestPosts() {
     allPosts = await fetchPosts();
     const blogContainer = document.getElementById('blogContainer');
@@ -22,7 +19,7 @@ async function displayLatestPosts() {
             const postElement = document.createElement('div');
             postElement.classList.add('blog-post');
             postElement.innerHTML = `
-                <a href="${baseURL}/HTML/one-post.html?id=${detailedPost.id}">
+                <a href="./HTML/one-post.html?id=${detailedPost.id}">
                     <img src="${detailedPost.media.url}" alt="${detailedPost.media.alt}">
                     <h2>${detailedPost.title}</h2>
                 </a>
@@ -46,7 +43,7 @@ async function displayPopularPosts() {
             const postElement = document.createElement('div');
             postElement.classList.add('popular-post');
             postElement.innerHTML = `
-                <a href="${baseURL}/HTML/one-post.html?id=${detailedPost.id}">
+                <a href="./HTML/one-post.html?id=${detailedPost.id}">
                     <img src="${detailedPost.media.url}" alt="${detailedPost.media.alt}">
                     <h2>${detailedPost.title}</h2>
                     <p>${detailedPost.shortDescription}</p>
@@ -113,7 +110,7 @@ async function renderCarousel() {
         ordinalNumber.textContent = `0${currentIndex + 1}`;
 
         mainImageContainer.onclick = () => {
-            window.location.href = `${baseURL}/HTML/one-post.html?id=${currentPost.id}`;
+            window.location.href = `./HTML/one-post.html?id=${currentPost.id}`;
         };
 
         mainImageContainer.classList.add("show");

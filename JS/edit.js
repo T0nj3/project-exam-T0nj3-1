@@ -21,17 +21,23 @@ document.addEventListener("DOMContentLoaded", async () => {
             const result = await response.json();
             const post = result.data;
 
-            
-            const title = post.title || "";
-            const body = post.body || "";
-            const tags = post.tags ? post.tags.join(", ") : "";
-            const mediaUrl = post.media?.url || "";
+            const titleElement = document.getElementById("title");
+            const bodyElement = document.getElementById("body");
+            const tagsElement = document.getElementById("tags");
+            const mediaUrlElement = document.getElementById("mediaUrl");
+            const createdElement = document.getElementById("created");
+            const mediaPreviewElement = document.getElementById("mediaPreview");
 
-            // Populate the form fields
-            document.getElementById("title").value = title;
-            document.getElementById("body").value = body;
-            document.getElementById("tags").value = tags;
-            document.getElementById("mediaUrl").value = mediaUrl;
+           
+            titleElement.value = post.title || "";
+            bodyElement.value = post.body || "";
+            tagsElement.value = post.tags ? post.tags.join(", ") : "";
+            mediaUrlElement.value = post.media?.url || "";
+            createdElement.value = post.created ? new Date(post.created).toISOString().slice(0, 16) : ""; 
+            
+           
+            mediaPreviewElement.src = post.media?.url || "";
+            mediaPreviewElement.style.display = post.media?.url ? "block" : "none"; 
         } else {
             alert("Failed to load post data.");
         }
@@ -40,7 +46,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         alert("An error occurred while fetching the post data.");
     }
 
-    // Form submit handler to update post
+   
+    document.getElementById("mediaUrl").addEventListener("input", updateImagePreview);
+
+    function updateImagePreview() {
+        const mediaUrlElement = document.getElementById("mediaUrl");
+        const mediaPreviewElement = document.getElementById("mediaPreview");
+        mediaPreviewElement.src = mediaUrlElement.value || "";
+        mediaPreviewElement.style.display = mediaUrlElement.value ? "block" : "none";
+    }
+
     document.getElementById("editForm").addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -51,7 +66,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             media: {
                 url: document.getElementById("mediaUrl").value,
                 alt: "Updated post image"
-            }
+            },
+            created: new Date(document.getElementById("created").value).toISOString() 
         };
 
         try {

@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <img src="${post.media?.url || 'https://via.placeholder.com/100'}" alt="${post.media?.alt || 'Post image'}">
                     <div class="post-info">
                       <div class="post-title">${post.title || 'No title'}</div>
+                      <div class="post-date">${new Date(post.created).toLocaleString()}</div> <!-- Show date and time here -->
                     </div>
                     <div class="post-actions">
                       <button class="edit" onclick="editPost('${post.id}')">Edit</button>
