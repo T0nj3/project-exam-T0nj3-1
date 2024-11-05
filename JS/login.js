@@ -21,7 +21,15 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
 
       if (data.data && data.data.accessToken) {  
         localStorage.setItem("accessToken", data.data.accessToken);
-        localStorage.setItem("username", email.split('@')[0]);  
+
+     
+        if (data.data.username) {
+          localStorage.setItem("username", data.data.username);
+        } else {
+          
+          localStorage.setItem("username", email.split('@')[0]);
+        }
+
         window.location.href = "../post/index.html";
       } else {
         alert("Login failed: No access token received.");

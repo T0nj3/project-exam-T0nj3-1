@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/footer.css">
-    <link rel="stylesheet" href="../CSS/header.css">
-    <script src="../JS/header.js"></script>
+  <link rel="stylesheet" href="../CSS/footer.css">
+  <link rel="stylesheet" href="../CSS/header.css">
+  <script src="../JS/header.js"></script>
 
   <title>Posts</title>
 </head>
 <body>
 
-  <header>
+<header>
     <h1 class="logo"><a href="">Whispers of the World</a></h1>
     <nav class="menu" id="navMenu">
         <a href="/blog.html">Blog</a>
@@ -38,39 +38,54 @@
     </div>
 </header>
 
+<div class="tabs">
+  <button id="showAddPostForm">Add New Post</button>
+</div>
+<div id="addPostFormContainer" style="display: none;">
+  <button class="close-btn" onclick="closeForm()">×</button>
+  <form id="addPostForm">
+    <label for="postTitle">Title:</label>
+    <input type="text" id="postTitle" name="postTitle" required>
+    
+    <label for="postBody">Body:</label>
+    <textarea id="postBody" name="postBody" required></textarea>
+    
+    <label for="postMediaUrl">Media URL (optional):</label>
+    <input type="text" id="postMediaUrl" name="postMediaUrl">
+    
+    <label for="postMediaAlt">Media Alt Text (optional):</label>
+    <input type="text" id="postMediaAlt" name="postMediaAlt">
+    
+    <button type="submit">Submit Post</button>
+  </form>
+</div>
+
+<div class="container">
+  <h2 id="tabTitle">Posts</h2>
+  <div id="postList" class="post-list"></div>
 
 
-
-
-  <div class="tabs">
-    <button class="tab">Posts</button>
-    <button class="tab">Drafts</button>
-    <button class="tab">Deleted posts</button>
+<footer class="footer">
+  <h1>Whispers of the World</h1>
+  <div class="footer-content">
+      <div class="footer-section">
+          <h4>Location</h4>
+          <p>Oslo<br>Norway</p>
+      </div>
+      <div class="footer-section">
+          <h4>Contact</h4>
+          <p>example@gmail.com<br>+47 90909090</p>
+      </div>
+      <div class="footer-section">
+          <h4>Follow</h4>
+          <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+      </div>
   </div>
-  <div class="container">
-    <h2>Posts</h2>
-    <div id="postList" class="post-list"></div>
-  </div>
-  <footer class="footer">
-    <h1>Whispers of the World</h1>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Location</h4>
-            <p>Oslo<br>Norway</p>
-        </div>
-        <div class="footer-section">
-            <h4>Contact</h4>
-            <p>example@gmail.com<br>+47 90909090</p>
-        </div>
-        <div class="footer-section">
-            <h4>Follow</h4>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
 </footer>
-  <script src="../JS/posts.js"></script>
+  
+<script src="../JS/posts.js"></script>
 </body>
 </html>
