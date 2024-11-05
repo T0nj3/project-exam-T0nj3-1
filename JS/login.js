@@ -21,13 +21,11 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
 
       if (data.data && data.data.accessToken) {  
         localStorage.setItem("accessToken", data.data.accessToken);
-
-     
-        if (data.data.username) {
-          localStorage.setItem("username", data.data.username);
+        
+        if (data.data.name) {
+          localStorage.setItem("username", data.data.name);
         } else {
-          
-          localStorage.setItem("username", email.split('@')[0]);
+          console.error("Username not found in response.");
         }
 
         window.location.href = "../post/index.html";
