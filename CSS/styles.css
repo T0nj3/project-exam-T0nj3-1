@@ -339,7 +339,7 @@ html, body {
     line-height: 1.5;
 }
 
-/* Responsivt oppsett for input og knapp */
+
 .newsletter-form {
     display: flex;
     flex-wrap: wrap;
@@ -379,7 +379,7 @@ html, body {
     background-color: #ff80ab;
 }
 
-/* Responsivt design for større og mindre skjermer */
+
 @media (min-width: 768px) {
     .newsletter-title {
         font-size: 2.5rem;

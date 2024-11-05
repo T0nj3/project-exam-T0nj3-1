@@ -63,7 +63,7 @@ html, body {
     color: #ff4081;
 }
 
-/* Responsivt design */
+
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;

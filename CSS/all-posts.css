@@ -74,7 +74,7 @@ html, body {
     color: #ffffff;
 }
 
-/* Responsiv design */
+
 @media (max-width: 768px) {
     .filter-section {
         gap: 10px;
@@ -347,7 +347,7 @@ html, body {
     color: #ff4081;
 }
 
-/* Sentrer knappen og teller */
+
 .button-container {
     display: flex;
     flex-direction: column;
