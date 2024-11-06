@@ -11,7 +11,7 @@ document.getElementById("registerForm").addEventListener("submit", async (event)
   const banner = { url: "https://example.com/default-banner.png", alt: "Default banner" };
   const venueManager = false;
 
-  const requestBody = { name, email, password, bio, avatar, banner, venueManager };
+  const requestBody = { name, email, password, };
   console.log("Request Body:", requestBody);
 
   try {

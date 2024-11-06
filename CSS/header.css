@@ -46,6 +46,7 @@ h1 {
 .menu a {
     text-decoration: none;
     color: black;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .menu a:hover {

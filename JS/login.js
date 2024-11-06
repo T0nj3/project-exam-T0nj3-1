@@ -17,21 +17,15 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
     
     if (response.ok) {
       const data = await response.json();
-      console.log("Login response data:", data);
+      localStorage.setItem("accessToken", data.data.accessToken);
 
-      if (data.data && data.data.accessToken) {  
-        localStorage.setItem("accessToken", data.data.accessToken);
-        
-        if (data.data.name) {
-          localStorage.setItem("username", data.data.name);
-        } else {
-          console.error("Username not found in response.");
-        }
-
-        window.location.href = "../post/index.html";
+      if (data.data.name) {
+        localStorage.setItem("username", data.data.name);
       } else {
-        alert("Login failed: No access token received.");
+        console.error("Username not found in response.");
       }
+
+      window.location.href = "../post/index.html";
     } else {
       alert("Login failed. Please check your credentials.");
     }
