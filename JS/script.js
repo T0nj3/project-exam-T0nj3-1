@@ -1,4 +1,4 @@
-import { fetchPosts, fetchPostById } from "./fetchData.js";
+import { fetchPosts, fetchPostById } from "./api-utils.js";
 
 let allPosts = [];
 let carouselPosts = [];

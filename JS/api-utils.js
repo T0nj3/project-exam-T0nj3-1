@@ -1,8 +1,10 @@
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVG9uamVfQWxiZXJ0aW4iLCJlbWFpbCI6InRvbmFsYjAwMTg3QHN0dWQubm9yb2ZmLm5vIiwiaWF0IjoxNzMwMTMwNTQzfQ.3avjD1bkEu89NQIh6t5BYOAxYXD1UI-gJ03v4TVHTiA";
+const apiKey = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
+const userName = "Tonje_Albertin"; 
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVG9uamVfQWxiZXJ0aW4iLCJlbWFpbCI6InRvbmFsYjAwMTg3QHN0dWQubm9yb2ZmLm5vIiwiaWF0IjoxNzMwOTAyMDU1fQ.54Vke8usbZ08rWgcaVMeMSvX9eQYvOcXpeNNUQ8eNdY";
 
 export async function fetchPosts() {
     try {
-        const response = await fetch('https://v2.api.noroff.dev/blog/posts/Tonje_Albertin', {
+        const response = await fetch(`https://v2.api.noroff.dev/blog/posts/${userName}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -17,10 +19,9 @@ export async function fetchPosts() {
         }
 
         const data = await response.json();
-
         return data.data.map(post => ({
             ...post,
-            created: post.created ? new Date(post.created) : generateRandomDate(), 
+            created: post.created ? new Date(post.created) : generateRandomDate(),
             popularity: generateRandomPopularity(),
             continent: mapCountryToContinent(post.title),
             shortDescription: truncateText(post.body, 100),
@@ -32,9 +33,58 @@ export async function fetchPosts() {
     }
 }
 
+export async function deletePost(postId) {
+    try {
+        const response = await fetch(`https://v2.api.noroff.dev/blog/posts/${userName}/${postId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token,
+                'X-Noroff-API-Key': apiKey
+            }
+        });
+
+        if (!response.ok) {
+            const errorResponse = await response.json();
+            console.error("Error response from API:", errorResponse);
+            throw new Error("Error deleting post.");
+        }
+
+        return true;
+    } catch (error) {
+        console.error("Error deleting post:", error.message);
+        return false;
+    }
+}
+
+export async function createPost(post) {
+    try {
+        const response = await fetch(`https://v2.api.noroff.dev/blog/posts/${userName}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token,
+                'X-Noroff-API-Key': apiKey
+            },
+            body: JSON.stringify(post)
+        });
+
+        if (!response.ok) {
+            const errorResponse = await response.json();
+            console.error("Error response from API:", errorResponse);
+            throw new Error("Error creating post.");
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error("Error creating post:", error.message);
+        throw error;
+    }
+}
+
 export async function fetchPostById(postId) {
     try {
-        const url = `https://v2.api.noroff.dev/blog/posts/Tonje_Albertin/${postId}`;
+        const url = `https://v2.api.noroff.dev/blog/posts/${userName}/${postId}`;
 
         const response = await fetch(url, {
             method: 'GET',
@@ -53,7 +103,6 @@ export async function fetchPostById(postId) {
         const result = await response.json();
         const post = result.data;
 
-       
         return {
             ...post,
             created: post.created ? new Date(post.created) : generateRandomDate(),
@@ -68,19 +117,18 @@ export async function fetchPostById(postId) {
     }
 }
 
-
-function generateRandomDate() {
+export function generateRandomDate() {
     const start = new Date(2020, 0, 1);
     const end = new Date(); // Current date
     const randomTime = start.getTime() + Math.random() * (end.getTime() - start.getTime());
     return new Date(randomTime).toISOString(); 
 }
 
-function generateRandomPopularity() {
+export function generateRandomPopularity() {
     return Math.floor(Math.random() * 100) + 1; 
 }
 
-function mapCountryToContinent(title) {
+export function mapCountryToContinent(title) {
     const continentMapping = {
         "Marrakech, Morocco": "Africa",
         "Cairo, Egypt": "Africa",
@@ -134,6 +182,6 @@ function mapCountryToContinent(title) {
     return continentMapping[title] || "Unknown";
 }
 
-function truncateText(text, maxLength) {
+export function truncateText(text, maxLength) {
     return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 }
