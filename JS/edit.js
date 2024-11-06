@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.getElementById("mediaUrl").value = post.media?.url || "";
             document.getElementById("created").value = post.created ? new Date(post.created).toISOString().slice(0, 16) : ""; 
             
-           
             const mediaPreviewElement = document.getElementById("mediaPreview");
             mediaPreviewElement.src = post.media?.url || "";
             mediaPreviewElement.style.display = post.media?.url ? "block" : "none"; 
