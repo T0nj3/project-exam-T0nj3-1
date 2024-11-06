@@ -25,7 +25,8 @@ export async function fetchPosts() {
             popularity: generateRandomPopularity(),
             continent: mapCountryToContinent(post.title),
             shortDescription: truncateText(post.body, 100),
-            media: post.media || { url: 'default.jpg', alt: 'Default image' }
+            media: post.media || { url: 'default.jpg', alt: 'Default image' },
+            author: post.author || { name: 'Unknown', avatar: { url: '', alt: '' } } // Added missing comma here
         }));
     } catch (error) {
         console.error("Error fetching posts:", error.message);

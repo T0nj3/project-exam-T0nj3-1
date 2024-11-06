@@ -72,6 +72,25 @@ main {
     }
 }
 
+@media (max-width: 480px) {
+    .single-post h2 {
+        font-size: 1.5em;
+    }
+
+    .single-post p {
+        font-size: 0.9em;
+    }
+
+    .comments-section h3 {
+        font-size: 1.2em;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
 .comments-section {
     max-width: 1000px;
     width: 100%;
