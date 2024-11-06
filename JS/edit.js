@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const apiKey = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
-    const bearerToken = localStorage.getItem("accessToken");
+    const bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVG9uamVfQWxiZXJ0aW4iLCJlbWFpbCI6InRvbmFsYjAwMTg3QHN0dWQubm9yb2ZmLm5vIiwiaWF0IjoxNzMwOTAyMDU1fQ.54Vke8usbZ08rWgcaVMeMSvX9eQYvOcXpeNNUQ8eNdY"; // Direct token
     const postId = new URLSearchParams(window.location.search).get("id");
     const userName = "Tonje_Albertin"; 
 
@@ -21,21 +21,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             const result = await response.json();
             const post = result.data;
 
-            const titleElement = document.getElementById("title");
-            const bodyElement = document.getElementById("body");
-            const tagsElement = document.getElementById("tags");
-            const mediaUrlElement = document.getElementById("mediaUrl");
-            const createdElement = document.getElementById("created");
-            const mediaPreviewElement = document.getElementById("mediaPreview");
-
-           
-            titleElement.value = post.title || "";
-            bodyElement.value = post.body || "";
-            tagsElement.value = post.tags ? post.tags.join(", ") : "";
-            mediaUrlElement.value = post.media?.url || "";
-            createdElement.value = post.created ? new Date(post.created).toISOString().slice(0, 16) : ""; 
             
-           
+            document.getElementById("title").value = post.title || "";
+            document.getElementById("body").value = post.body || "";
+            document.getElementById("tags").value = post.tags ? post.tags.join(", ") : "";
+            document.getElementById("mediaUrl").value = post.media?.url || "";
+            document.getElementById("created").value = post.created ? new Date(post.created).toISOString().slice(0, 16) : ""; 
+            
+            
+            const mediaPreviewElement = document.getElementById("mediaPreview");
             mediaPreviewElement.src = post.media?.url || "";
             mediaPreviewElement.style.display = post.media?.url ? "block" : "none"; 
         } else {
@@ -46,7 +40,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         alert("An error occurred while fetching the post data.");
     }
 
-   
     document.getElementById("mediaUrl").addEventListener("input", updateImagePreview);
 
     function updateImagePreview() {
@@ -83,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             if (updateResponse.ok) {
                 alert("Post updated successfully!");
-                window.location.href = "index.html";
+                window.location.href = "index.html"; 
             } else {
                 alert("Failed to update post.");
             }
