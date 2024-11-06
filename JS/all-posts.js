@@ -1,4 +1,4 @@
-import { fetchPosts } from "./fetchData.js";
+import { fetchPosts } from "./api-utils.js";
 
 let currentPage = 1;
 const postsPerPage = 12;

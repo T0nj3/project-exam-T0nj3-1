@@ -1,120 +1,57 @@
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    flex-direction: column;
-}
-
-#showAddPostForm {
-  display: block;
-  width: 200px;
-  margin: 20px auto;
-  padding: 12px 24px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-align: center;
-}
-
-#showAddPostForm:hover {
-  background-color: #0056b3;
-}
-
-#addPostFormContainer {
-  display: none;
-}
-
-#addPostForm {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.close-btn {
-  align-self: flex-end;
-  background-color: #333;
-  color: #fff;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.close-btn:hover {
-  background-color: #555;
-}
-#addPostForm label {
-  font-size: 18px;
-  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
   color: #333;
-}
-
-#addPostForm input[type="text"],
-#addPostForm textarea {
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-#addPostForm button[type="submit"] {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #28a745;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-bottom: 5%;
-}
-
-#addPostForm button[type="submit"]:hover {
-  background-color: #218838;
 }
 
 .container {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 100%;
-  margin-bottom: 5%;
-  margin-top: 5%;
+  max-width: 1200px;
+  margin: 5% auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 28px;
   color: #333;
-  text-align: center;
-  margin-bottom: 20px;
+}
+
+.btn-add {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ff4081;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-add:hover {
+  background-color: #ff80ab;
 }
 
 .post-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
-  padding: 20px 0;
 }
 
 .post {
@@ -171,7 +108,7 @@ h2 {
 
 .post-actions .edit {
   color: #fff;
-  background-color: #007bff;
+  background-color: #000000;
   border: none;
 }
 
@@ -187,4 +124,85 @@ h2 {
 
 .post-actions .delete:hover {
   background-color: #b02a37;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 5% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 70%; 
+}
+
+#mediaPreview {
+  display: none; 
+  max-width: 150px; 
+  height: auto; 
+  border-radius: 8px; 
+  margin-top: 10px; 
+}
+
+.close-btn {
+  color: #434343;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#addPostForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#addPostForm label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+#addPostForm input[type="text"],
+#addPostForm textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#addPostForm button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ff4081;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#addPostForm button[type="submit"]:hover {
+  background-color: #ff80ab;
 }

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropdownContent = document.getElementById("dropdownContent");
     const usernameElement = document.getElementById("username");
 
-    if (navMenu && userMenu && usernameElement) { // Check if elements exist
+    if (navMenu && userMenu && usernameElement) { 
         if (username) {
             navMenu.style.display = "none"; 
             userMenu.style.display = "flex"; 
@@ -32,5 +32,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     } else {
         console.error("One or more elements are missing from the DOM.");
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Get modal elements
+    const addPostFormModal = document.getElementById("addPostFormModal");
+    const closeModalButton = document.getElementById("closeModalButton");
+    const showAddPostFormButton = document.getElementById("showAddPostForm");
+
+    
+    showAddPostFormButton.addEventListener("click", () => {
+        addPostFormModal.style.display = "block";
+    });
+
+  
+    closeModalButton.addEventListener("click", closeForm);
+
+    
+    window.addEventListener("click", (event) => {
+        if (event.target === addPostFormModal) {
+            closeForm();
+        }
+    });
+
+    function closeForm() {
+        addPostFormModal.style.display = "none";
     }
 });
