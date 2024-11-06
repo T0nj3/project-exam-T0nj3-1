@@ -2,10 +2,12 @@ import { fetchPosts, deletePost, createPost } from './api-utils.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const postList = document.getElementById("postList");
-    const addPostFormContainer = document.getElementById("addPostFormContainer");
+    const addPostFormModal = document.getElementById("addPostFormModal");
     const showAddPostFormButton = document.getElementById("showAddPostForm");
-    const userName = "Tonje_Albertin"; // Username for fetching posts
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVG9uamVfQWxiZXJ0aW4iLCJlbWFpbCI6InRvbmFsYjAwMTg3QHN0dWQubm9yb2ZmLm5vIiwiaWF0IjoxNzMwOTAyMDU1fQ.54Vke8usbZ08rWgcaVMeMSvX9eQYvOcXpeNNUQ8eNdY"; // Direct token
+    const mediaUrlInput = document.getElementById("postMediaUrl");
+    const mediaPreviewElement = document.getElementById("mediaPreview"); 
+    const userName = "Tonje_Albertin";
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVG9uamVfQWxiZXJ0aW4iLCJlbWFpbCI6InRvbmFsYjAwMTg3QHN0dWQubm9yb2ZmLm5vIiwiaWF0IjoxNzMwOTAyMDU1fQ.54Vke8usbZ08rWgcaVMeMSvX9eQYvOcXpeNNUQ8eNdY"; 
 
     async function displayPosts() {
         const posts = await fetchPosts();
@@ -27,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `).join("");
 
-            // Add event listeners for delete buttons
             document.querySelectorAll(".delete").forEach(button => {
                 button.addEventListener("click", async (event) => {
                     const postId = event.target.getAttribute("data-post-id");
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         const success = await deletePost(postId);
                         if (success) {
                             alert("Post deleted successfully!");
-                            displayPosts(); // Refresh post list after deletion
+                            displayPosts(); 
                         } else {
                             alert("Failed to delete post.");
                         }
@@ -46,7 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     showAddPostFormButton.addEventListener("click", () => {
-        addPostFormContainer.style.display = "block";
+        addPostFormModal.style.display = "block"; 
+    });
+
+    document.getElementById("closeModalButton").addEventListener("click", () => {
+        addPostFormModal.style.display = "none"; 
+        mediaPreviewElement.style.display = "none"; 
+    });
+
+    mediaUrlInput.addEventListener("input", () => {
+        const url = mediaUrlInput.value;
+        mediaPreviewElement.src = url || "";
+        mediaPreviewElement.style.display = url ? "block" : "none"; 
     });
 
     document.getElementById("addPostForm").addEventListener("submit", async (event) => {
@@ -54,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const title = document.getElementById("postTitle").value;
         const body = document.getElementById("postBody").value;
-        const mediaUrl = document.getElementById("postMediaUrl").value;
+        const mediaUrl = mediaUrlInput.value;
         const mediaAlt = document.getElementById("postMediaAlt").value;
 
         const newPost = { title, body, media: { url: mediaUrl, alt: mediaAlt } };
@@ -64,14 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("New post added successfully!");
             displayPosts();
             document.getElementById("addPostForm").reset();
-            addPostFormContainer.style.display = "none";
+            addPostFormModal.style.display = "none"; 
+            mediaPreviewElement.style.display = "none"; 
         } catch (error) {
             alert("Failed to add post. Please try again.");
             console.error("Error:", error);
         }
     });
 
-    displayPosts();
+    displayPosts(); 
 });
 
 window.editPost = (id) => {
