@@ -6,27 +6,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropdownContent = document.getElementById("dropdownContent");
     const usernameElement = document.getElementById("username");
 
-    if (username) {
-        navMenu.style.display = "none"; 
-        userMenu.style.display = "flex"; 
-        usernameElement.textContent = username;
+    if (navMenu && userMenu && usernameElement) { // Check if elements exist
+        if (username) {
+            navMenu.style.display = "none"; 
+            userMenu.style.display = "flex"; 
+            usernameElement.textContent = username;
 
-        document.getElementById("logout").addEventListener("click", () => {
-            localStorage.removeItem("accessToken");
-            localStorage.removeItem("username");
-            window.location.href = "./login/index.html"; 
-        });
+            document.getElementById("logout").addEventListener("click", () => {
+                localStorage.removeItem("accessToken");
+                localStorage.removeItem("username");
+                window.location.href = "./login/index.html"; 
+            });
 
-        usernameElement.addEventListener("click", () => {
-            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
-        });
+            usernameElement.addEventListener("click", () => {
+                dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+            });
 
-        document.addEventListener("click", (event) => {
-            if (!userMenu.contains(event.target) && dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            }
-        });
+            document.addEventListener("click", (event) => {
+                if (!userMenu.contains(event.target) && dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                }
+            });
+        } else {
+            loginLink.style.display = "block";
+        }
     } else {
-        loginLink.style.display = "block";
+        console.error("One or more elements are missing from the DOM.");
     }
 });
