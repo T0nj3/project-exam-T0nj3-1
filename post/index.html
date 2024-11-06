@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/footer.css">
   <link rel="stylesheet" href="../CSS/header.css">
@@ -38,34 +42,34 @@
     </div>
 </header>
 
-<div class="tabs">
-  <button id="showAddPostForm">Add New Post</button>
-</div>
-<div id="addPostFormContainer" style="display: none;">
-  <button class="close-btn" onclick="closeForm()">×</button>
-  <form id="addPostForm">
-    <label for="postTitle">Title:</label>
-    <input type="text" id="postTitle" name="postTitle" required>
-    
-    <label for="postBody">Body:</label>
-    <textarea id="postBody" name="postBody" required></textarea>
-    
-    <label for="postMediaUrl">Media URL (optional):</label>
-    <input type="text" id="postMediaUrl" name="postMediaUrl">
-    
-    <label for="postMediaAlt">Media Alt Text (optional):</label>
-    <input type="text" id="postMediaAlt" name="postMediaAlt">
-    
-    <button type="submit">Submit Post</button>
-  </form>
-</div>
 
 <div class="container">
   <h2 id="tabTitle">Posts</h2>
   <div id="postList" class="post-list"></div>
-
-
-<footer class="footer">
+  <div class="tabs">
+    <button id="showAddPostForm">Add New Post</button>
+  </div>
+  <div id="addPostFormContainer" style="display: none;">
+    <button class="close-btn" onclick="closeForm()">×</button>
+    <form id="addPostForm">
+      <label for="postTitle">Title:</label>
+      <input type="text" id="postTitle" name="postTitle" required>
+      
+      <label for="postBody">Body:</label>
+      <textarea id="postBody" name="postBody" required></textarea>
+      
+      <label for="postMediaUrl">Media URL (optional):</label>
+      <input type="text" id="postMediaUrl" name="postMediaUrl">
+      
+      <label for="postMediaAlt">Media Alt Text (optional):</label>
+      <input type="text" id="postMediaAlt" name="postMediaAlt">
+      
+      <button type="submit">Submit Post</button>
+    </form>
+  </div>
+  
+  
+  <footer class="footer">
   <h1>Whispers of the World</h1>
   <div class="footer-content">
       <div class="footer-section">

@@ -183,6 +183,8 @@ html, body {
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
+    transition: transform 0.3s ease;
+    
 }
 
 .blog-post img {
@@ -197,10 +199,14 @@ html, body {
     transform: scale(1.05);
 }
 
-.blog-post h2 {
+.blog-post a {
     margin-top: 10px;
     font-weight: 200;
     font-size: 1.25vw;
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    
 }
 
 @media (min-width: 992px) {

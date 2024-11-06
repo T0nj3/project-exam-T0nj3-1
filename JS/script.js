@@ -29,12 +29,14 @@ async function displayLatestPosts() {
     }
 }
 
+
 async function displayPopularPosts() {
+    allPosts = await fetchPosts();
     const popularPosts = allPosts
         .sort((a, b) => b.popularity - a.popularity)
         .slice(0, 3);
 
-    const popularContainer = document.querySelector('.popular-posts');
+    const popularContainer = document.getElementById('popularPostsContainer');
     if (popularContainer) {
         popularContainer.innerHTML = '';
 
@@ -44,9 +46,10 @@ async function displayPopularPosts() {
             postElement.classList.add('popular-post');
             postElement.innerHTML = `
                 <a href="./HTML/one-post.html?id=${detailedPost.id}">
-                    <img src="${detailedPost.media.url}" alt="${detailedPost.media.alt}">
+                    <img src="${detailedPost.media.url}" alt="${detailedPost.media.alt || 'Image'}">
                     <h2>${detailedPost.title}</h2>
-                    <p>${detailedPost.shortDescription}</p>
+                    <div class="divider"></div>
+                    <div class="date">Published: ${new Date(detailedPost.created).toLocaleDateString()}</div>
                 </a>
             `;
             popularContainer.appendChild(postElement);
@@ -54,6 +57,9 @@ async function displayPopularPosts() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", async () => {
+    await displayPopularPosts();
+});
 async function getLatestPostsForCarousel() {
     const latestPosts = allPosts
         .sort((a, b) => new Date(b.created) - new Date(a.created))
