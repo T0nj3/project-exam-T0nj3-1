@@ -502,7 +502,23 @@ html, body {
     background-color: #ff80ab;
 }
 
+@media screen and (max-width: 500px) {
+    .text-blog-header {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        margin-bottom: 20px;
+    }
 
+    .text-blog h2 {
+        margin-bottom: 10px; 
+    }
+
+    .text-blog .view-all-button {
+        margin: 0; 
+        justify-self: center; 
+    }
+}
 
 
 #blogContainer {
