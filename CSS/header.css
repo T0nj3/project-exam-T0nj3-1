@@ -5,7 +5,7 @@
 }
 
 html, body {
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: #222;
@@ -32,7 +32,7 @@ h1 {
 
 .menu {
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
 .logo a {
@@ -43,7 +43,6 @@ h1 {
 .menu a {
     text-decoration: none;
     color: black;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 .menu a:hover {
