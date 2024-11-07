@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../CSS/header.css">
   <link rel="stylesheet" href="../CSS/footer.css">
   <title>Posts</title>
-  <script src="../JS/header.js"></script>
+  <script src="../JS/header.js" type="module"></script>
   <script src="../JS/posts.js" type="module"></script>
 </head>
 <body>
@@ -35,14 +35,14 @@
         <a href="/about.html">About</a>
         <a href="/index.html" id="loginLink">Login</a>
     </div>
-  </div>
-</header>
+  </header>
 
   <div class="container">
-    <h2 id="tabTitle">Posts</h2>
-    <div id="postList" class="post-list"></div>
-    <button id="showAddPostForm">Add New Post</button>
-    
+    <div class="header">
+      <h2>Posts</h2>
+      <button id="showAddPostForm" class="btn-add">Add New Post</button>
+    </div>
+
     <div id="addPostFormModal" class="modal">
       <div class="modal-content">
           <span id="closeModalButton" class="close-btn">&times;</span>
@@ -50,22 +50,25 @@
           <form id="addPostForm">
               <label for="postTitle">Title:</label>
               <input type="text" id="postTitle" name="postTitle" required>
-  
+
               <label for="postBody">Body:</label>
               <textarea id="postBody" name="postBody" required></textarea>
-  
+
               <label for="postMediaUrl">Media URL (optional):</label>
               <input type="text" id="postMediaUrl" name="postMediaUrl" oninput="updateImagePreview()">
-  
+
               <label>Image Preview:</label>
               <img id="mediaPreview" src="" alt="Image Preview" style="display:none; max-width: 150px; margin-top: 10px; border-radius: 8px;">
-  
+
               <label for="postMediaAlt">Media Alt Text (optional):</label>
               <input type="text" id="postMediaAlt" name="postMediaAlt">
-  
+
               <button type="submit">Submit Post</button>
           </form>
       </div>
+    </div>
+
+    <div id="postList" class="post-list"></div>
   </div>
 
   <footer class="footer">

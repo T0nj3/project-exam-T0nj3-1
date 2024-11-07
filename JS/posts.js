@@ -5,17 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const addPostFormModal = document.getElementById("addPostFormModal");
     const showAddPostFormButton = document.getElementById("showAddPostForm");
     const mediaUrlInput = document.getElementById("postMediaUrl");
-    const mediaPreviewElement = document.getElementById("mediaPreview"); 
-    const userName = "Tonje_Albertin";
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVG9uamVfQWxiZXJ0aW4iLCJlbWFpbCI6InRvbmFsYjAwMTg3QHN0dWQubm9yb2ZmLm5vIiwiaWF0IjoxNzMwOTAyMDU1fQ.54Vke8usbZ08rWgcaVMeMSvX9eQYvOcXpeNNUQ8eNdY"; 
+    const mediaPreviewElement = document.getElementById("mediaPreview");
 
     async function displayPosts() {
-        const posts = await fetchPosts();
-
-        if (!posts || posts.length === 0) {
-            postList.innerHTML = "<p>No posts found.</p>";
-        } else {
-            postList.innerHTML = posts.map(post => `
+        try {
+            const posts = await fetchPosts();
+            postList.innerHTML = posts.length === 0 ? "<p>No posts found.</p>" : posts.map(post => `
                 <div class="post">
                     <img src="${post.media?.url || 'https://via.placeholder.com/100'}" alt="${post.media?.alt || 'Post image'}">
                     <div class="post-info">
@@ -43,6 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             });
+        } catch (error) {
+            console.error("Error fetching posts:", error);
+            postList.innerHTML = "<p>Failed to load posts. Please try again later.</p>";
         }
     }
 
@@ -69,7 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const mediaUrl = mediaUrlInput.value;
         const mediaAlt = document.getElementById("postMediaAlt").value;
 
-        const newPost = { title, body, media: { url: mediaUrl, alt: mediaAlt } };
+        const newPost = { 
+            title, 
+            body, 
+            media: { url: mediaUrl, alt: mediaAlt },
+        };
 
         try {
             await createPost(newPost);
@@ -79,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
             addPostFormModal.style.display = "none"; 
             mediaPreviewElement.style.display = "none"; 
         } catch (error) {
-            alert("Failed to add post. Please try again.");
+            alert("Failed to add post: " + error.message);
             console.error("Error:", error);
         }
     });

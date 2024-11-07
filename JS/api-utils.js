@@ -26,7 +26,7 @@ export async function fetchPosts() {
             continent: mapCountryToContinent(post.title),
             shortDescription: truncateText(post.body, 100),
             media: post.media || { url: 'default.jpg', alt: 'Default image' },
-            author: post.author || { name: 'Unknown', avatar: { url: '', alt: '' } } // Added missing comma here
+            author: post.author || { name: 'Unknown', avatar: { url: '', alt: '' } } 
         }));
     } catch (error) {
         console.error("Error fetching posts:", error.message);
@@ -59,6 +59,9 @@ export async function deletePost(postId) {
 }
 
 export async function createPost(post) {
+    const apiKey = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; 
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVG9uamVfQWxiZXJ0aW4iLCJlbWFpbCI6InRvbmFsYjAwMTg3QHN0dWQubm9yb2ZmLm5vIiwiaWF0IjoxNzMwOTAyMDU1fQ.54Vke8usbZ08rWgcaVMeMSvX9eQYvOcXpeNNUQ8eNdY"; 
+
     try {
         const response = await fetch(`https://v2.api.noroff.dev/blog/posts/${userName}`, {
             method: 'POST',
@@ -163,6 +166,7 @@ export function mapCountryToContinent(title) {
         "Kotor, Montenegro": "Europe",
         "Kraków, Poland": "Europe",
         "New York City, USA": "North America",
+        "Barbados, Caribbean": "North America",
         "Los Angeles, USA": "North America",
         "Cancún, Mexico": "North America",
         "Montreal, Canada": "North America",

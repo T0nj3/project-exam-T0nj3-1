@@ -27,17 +27,12 @@ body {
   margin-bottom: 20px;
 }
 
-h2 {
-  font-size: 28px;
-  color: #333;
-}
-
 .btn-add {
   padding: 12px 24px;
   font-size: 16px;
   font-weight: bold;
   color: #fff;
-  background-color: #007bff;
+  background-color: #ff4081;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -45,7 +40,7 @@ h2 {
 }
 
 .btn-add:hover {
-  background-color: #0056b3;
+  background-color: #ff80ab;
 }
 
 .post-list {
@@ -188,7 +183,7 @@ h2 {
   font-size: 18px;
   font-weight: bold;
   color: #fff;
-  background-color: #28a745;
+  background-color: #ff4081;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -196,5 +191,5 @@ h2 {
 }
 
 #addPostForm button[type="submit"]:hover {
-  background-color: #218838;
+  background-color: #ff80ab;
 }
