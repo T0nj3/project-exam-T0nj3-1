@@ -662,8 +662,9 @@ html, body {
 
     .guide-image img {
         width: 100%;
-        height: 50vh;
+        height: auto;
         border-radius: 10px;
+        cursor: pointer;
     }
 
     .guide-content {
@@ -673,7 +674,8 @@ html, body {
     }
 
     .guide-content button {
-        align-self: center;
+       display: none;
+        
     }
 }
 
