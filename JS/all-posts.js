@@ -20,6 +20,11 @@ function displayPosts() {
   const postCount = document.getElementById('postCount');
   const loadMoreButton = document.getElementById('loadMoreButton');
 
+  if (!blogContainer || !postCount || !loadMoreButton) {
+    console.error("Missing elements: Check if blogContainer, postCount, or loadMoreButton exists in your HTML.");
+    return;
+  }
+
   const previousScrollPosition = window.pageYOffset;
 
   if (currentPage === 1) {
@@ -54,7 +59,7 @@ function displayPosts() {
   window.scrollTo(0, previousScrollPosition);
 }
 
-document.getElementById('loadMoreButton').addEventListener('click', () => {
+document.getElementById('loadMoreButton')?.addEventListener('click', () => {
   currentPage++;
   displayPosts();
 });
@@ -83,10 +88,16 @@ function applyContinentFilter(continent) {
 
 fetchAllPosts();
 
-document.getElementById("filterButton").addEventListener("click", function () {
+
+document.getElementById("filterButton")?.addEventListener("click", function () {
   const filterOptions = document.getElementById("filterOptions");
-  filterOptions.style.display = filterOptions.style.display === "block" ? "none" : "block";
+  if (filterOptions) {
+    filterOptions.style.display = filterOptions.style.display === "block" ? "none" : "block";
+  } else {
+    console.error("filterOptions element not found.");
+  }
 });
+
 
 document.querySelectorAll(".filter-options p").forEach(option => {
   option.addEventListener("click", function () {
@@ -100,6 +111,7 @@ document.querySelectorAll(".filter-options p").forEach(option => {
   });
 });
 
+
 document.querySelectorAll(".filter-section .filter-btn").forEach(button => {
   button.addEventListener("click", function () {
     document.querySelectorAll(".filter-section .filter-btn").forEach(btn => btn.classList.remove("active"));
@@ -110,7 +122,29 @@ document.querySelectorAll(".filter-section .filter-btn").forEach(button => {
   });
 });
 
-document.getElementById("hamburgerMenu").addEventListener("click", () => {
+
+document.getElementById("filterHamburgerMenu")?.addEventListener("click", () => {
   const mobileFilterMenu = document.getElementById("mobileFilterMenu");
-  mobileFilterMenu.classList.toggle("active");
+  if (mobileFilterMenu) {
+    mobileFilterMenu.classList.toggle("active");
+  } else {
+    console.error("mobileFilterMenu element not found.");
+  }
+});
+
+
+document.querySelectorAll(".mobile-filter-menu .filter-btn").forEach(button => {
+  button.addEventListener("click", function () {
+    document.querySelectorAll(".mobile-filter-menu .filter-btn").forEach(btn => btn.classList.remove("active"));
+    this.classList.add("active");
+
+    const continent = this.textContent.trim();
+    applyContinentFilter(continent);
+
+   
+    const mobileFilterMenu = document.getElementById("mobileFilterMenu");
+    if (mobileFilterMenu) {
+      mobileFilterMenu.classList.remove("active");
+    }
+  });
 });

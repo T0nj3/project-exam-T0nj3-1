@@ -109,6 +109,10 @@ h1 {
         cursor: pointer;
         align-self: flex-end;
     }
+
+    .logo a {
+        font-size: 1.5rem;
+    }
 }
 
 .user-menu {
