@@ -73,6 +73,21 @@ html, body {
     margin-left: 5%;
 }
 
+@media screen and (max-width: 500px) {
+    .carousel-text h1 {
+        font-size: 2rem;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .carousel-text p {
+        font-size: 1rem;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+}
+
 .carousel-text p {
     font-size: 1.5rem;
     margin: 20px 0;
@@ -602,7 +617,7 @@ html, body {
 .guide-card {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: auto;
     background-color: #d0cece;
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

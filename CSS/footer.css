@@ -18,6 +18,7 @@ html, body {
     text-align: center;
     font-family: "JetBrains Mono", monospace;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
 }
 
 .footer h1 {
