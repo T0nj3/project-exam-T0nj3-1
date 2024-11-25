@@ -21,7 +21,6 @@ export async function fetchPosts() {
         const data = await response.json();
         return data.data.map(post => ({
             ...post,
-            created: post.created ? new Date(post.created) : generateRandomDate(),
             popularity: generateRandomPopularity(),
             continent: mapCountryToContinent(post.title),
             shortDescription: truncateText(post.body, 100),
@@ -119,13 +118,6 @@ export async function fetchPostById(postId) {
         console.error("Error fetching post:", error.message);
         return null;
     }
-}
-
-export function generateRandomDate() {
-    const start = new Date(2020, 0, 1);
-    const end = new Date(); // Current date
-    const randomTime = start.getTime() + Math.random() * (end.getTime() - start.getTime());
-    return new Date(randomTime).toISOString(); 
 }
 
 export function generateRandomPopularity() {

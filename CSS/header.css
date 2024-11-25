@@ -59,7 +59,7 @@ h1 {
     flex-direction: column;
     position: fixed;
     top: 0;
-    right: -250px; 
+    right: -250px;
     width: 250px;
     height: 100%;
     background-color: white;
@@ -75,6 +75,10 @@ h1 {
 
 @media (max-width: 700px) {
     .menu {
+        display: none;
+    }
+
+    .search-bar-desktop {
         display: none;
     }
 
@@ -115,11 +119,68 @@ h1 {
     }
 }
 
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #222;
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+.search-bar input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestions div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestions div:hover {
+    background-color: #f0f0f0;
+}
+
+.search-bar-hamburger {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.side-menu.open .search-bar-hamburger {
+    display: flex;
+}
+
 .user-menu {
     position: relative;
 }
 
-.dropdown-content {
+#dropdownContent {
     display: none;
     position: absolute;
     background-color: white;
@@ -131,17 +192,39 @@ h1 {
     right: 0;
 }
 
-.dropdown-content a {
+#dropdownContent a {
     color: black;
     padding: 10px 15px;
     text-decoration: none;
     display: block;
 }
 
-.dropdown-content a:hover {
+#dropdownContent a:hover {
     background-color: #f1f1f1;
 }
 
-.user-menu:hover .dropdown-content {
+.user-menu:hover #dropdownContent {
     display: block;
+}
+
+@media (max-width: 700px) {
+    .search-bar-desktop {
+        display: none;
+    }
+}
+
+@media (max-width: 990px) {
+    .search-bar-desktop {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 800px) {
+    .search-bar-desktop {
+        max-width: 100px;
+    }
+
+    .search-bar-desktop input {
+        font-size: 0.8rem;
+    }
 }
