@@ -21,15 +21,19 @@ async function displayPost() {
             return;
         }
 
+        
+        const paragraphs = post.fullDescription.split(/\n+/);
+        const formattedBody = paragraphs.map(paragraph => `<p>${paragraph}</p>`).join("");
+
         document.getElementById("blogContainer").innerHTML = `
             <article class="single-post">
-                <img src="${post.media.url}" alt="${post.media.alt}" style="max-width: 100%; height: auto; border-radius: 8px;">
+                <img src="${post.media.url}" alt="${post.media.alt}" style="max-width: 100%; height: auto; border-radius: 8px; ">
                 <h2>${post.title}</h2>
                 <p style="font-size: 12px; color: #555; font-weight: 200;">
                     <em>Published on: ${new Date(post.created).toLocaleDateString()}</em>
                     <span style="margin-left: 10px;">| Author: ${post.author.name}</span>
                 </p>
-                <p>${post.fullDescription}</p>
+                ${formattedBody}
             </article>
         `;
     } catch (error) {

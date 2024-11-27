@@ -22,7 +22,6 @@ main {
     padding: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    text-align: center;
     font-family: 'Georgia', serif;
     margin-bottom: 30px;
 }
@@ -41,6 +40,7 @@ main {
     margin-bottom: 10px;
     line-height: 1.2;
     font-family: 'Courier New', Courier, monospace;
+    text-align: center;
 }
 
 .single-post p em {
@@ -49,6 +49,7 @@ main {
     font-family: 'Courier New', Courier, monospace;
     display: block;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .single-post p {
@@ -56,7 +57,10 @@ main {
     font-size: 1.1em;
     color: #555;
     line-height: 1.6;
+    text-align: center;
 }
+
+
 
 @media (max-width: 768px) {
     #blogContainer {
