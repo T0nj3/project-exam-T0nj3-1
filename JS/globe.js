@@ -84,7 +84,7 @@ function normalizeTitle(title) {
                 marker.bindPopup(`
                     <h3>${post.title}</h3>
                     <p>${post.shortDescription}</p>
-                    <a href="../html/one-post.html/${post.id}" target="_blank">Les mer</a>
+                    <a href="../HTML/one-post.html/${post.id}" target="_blank">Read More</a>
                 `);
             }
         });
