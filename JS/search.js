@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const target = event.target.closest("div[data-id]");
         if (target) {
             const postId = target.dataset.id;
-            window.location.href = `./HTML/one-post.html?id=${postId}`;
+            window.location.href = `./html/one-post.html?id=${postId}`;
         }
     }
 

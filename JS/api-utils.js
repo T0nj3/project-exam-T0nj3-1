@@ -1,4 +1,3 @@
-const apiKey = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
 const userName = "Tonje_Albertin"; 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVG9uamVfQWxiZXJ0aW4iLCJlbWFpbCI6InRvbmFsYjAwMTg3QHN0dWQubm9yb2ZmLm5vIiwiaWF0IjoxNzMwOTAyMDU1fQ.54Vke8usbZ08rWgcaVMeMSvX9eQYvOcXpeNNUQ8eNdY";
 
@@ -40,7 +39,6 @@ export async function deletePost(postId) {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token,
-                'X-Noroff-API-Key': apiKey
             }
         });
 
@@ -67,7 +65,6 @@ export async function createPost(post) {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token,
-                'X-Noroff-API-Key': apiKey
             },
             body: JSON.stringify(post)
         });
