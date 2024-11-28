@@ -19,7 +19,7 @@ async function displayLatestPosts() {
             const postElement = document.createElement('div');
             postElement.classList.add('blog-post');
             postElement.innerHTML = `
-                <a href="./HTML/one-post.html?id=${detailedPost.id}">
+                <a href="./html/one-post.html?id=${detailedPost.id}">
                     <img src="${detailedPost.media.url}" alt="${detailedPost.media.alt}">
                     <h2>${detailedPost.title}</h2>
                 </a>
@@ -45,7 +45,7 @@ async function displayPopularPosts() {
             const postElement = document.createElement('div');
             postElement.classList.add('popular-post');
             postElement.innerHTML = `
-                <a href="./HTML/one-post.html?id=${detailedPost.id}">
+                <a href="./html/one-post.html?id=${detailedPost.id}">
                     <img src="${detailedPost.media.url}" alt="${detailedPost.media.alt || 'Image'}">
                     <h2>${detailedPost.title}</h2>
                     <div class="divider"></div>
@@ -116,7 +116,7 @@ async function renderCarousel() {
         ordinalNumber.textContent = `0${currentIndex + 1}`;
 
         mainImageContainer.onclick = () => {
-            window.location.href = `./HTML/one-post.html?id=${currentPost.id}`;
+            window.location.href = `./html/one-post.html?id=${currentPost.id}`;
         };
 
         mainImageContainer.classList.add("show");

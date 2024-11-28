@@ -39,7 +39,7 @@ function displayPosts() {
     const postElement = document.createElement('div');
     postElement.classList.add('blog-post');
     postElement.innerHTML = `
-      <a href="../HTML/one-post.html?id=${post.id}">
+      <a href="../html/one-post.html?id=${post.id}">
           <img src="${post.media.url}" alt="${post.media.alt}">
           <h2>${post.title}</h2>
       </a>
