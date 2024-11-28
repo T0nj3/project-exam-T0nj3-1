@@ -14,22 +14,32 @@
 </head>
 <body>
     <header>
-        <h1 class="logo"><a href="../index.html">Whispers of the World</a></h1>
+        <h1 class="logo"><a href="/index.html">Whispers of the World</a></h1>
+        <div class="search-bar search-bar-desktop">
+            <input type="text" id="searchInputDesktop" placeholder="Search posts..." autocomplete="off" />
+            <div id="suggestionsDesktop" class="suggestions"></div>
+        </div>
         <nav class="menu">
-            <a href="/blog.html">Blog</a>
-            <a href="/about.html">About</a>
-            <a href="./account/login.html">Login</a>
+            <a href="/HTML/all-posts.html">Blog</a>
+            <a href="/HTML/map.html" class="map-link">Map</a>  
+            <a href="/HTML/about.html">About</a>
+            <a href="/account/login.html">Login</a>
         </nav>
-        <div class="hamburger" onclick="toggleMenu()">
+        <div class="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
         <div class="side-menu" id="sideMenu">
-            <span class="close" onclick="toggleMenu()">&times;</span>
-            <a href="/blog.html">Blog</a>
-            <a href="/about.html">About</a>
-            <a href="/login.html">Login</a>
+            <span class="close">&times;</span>
+            <div class="search-bar search-bar-hamburger">
+                <input type="text" id="searchInputHamburger" placeholder="Search posts..." autocomplete="off" />
+                <div id="suggestionsHamburger" class="suggestions"></div>
+            </div>
+            <a href="/HTML/all-posts.html">Blog</a>
+            <a href="/HTML/map.html">Map</a> 
+            <a href="/HTML/about.html">About</a>
+            <a href="login.html">Login</a>
         </div>
     </header>
     
