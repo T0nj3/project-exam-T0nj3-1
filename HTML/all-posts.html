@@ -18,21 +18,31 @@
 <body>
     <header>
         <h1 class="logo"><a href="/index.html">Whispers of the World</a></h1>
+        <div class="search-bar search-bar-desktop">
+            <input type="text" id="searchInputDesktop" placeholder="Search posts..." autocomplete="off" />
+            <div id="suggestionsDesktop" class="suggestions"></div>
+        </div>
         <nav class="menu">
             <a href="all-posts.html">Blog</a>
+            <a href="/HTML/map.html" class="map-link">Map</a>  
             <a href="about.html">About</a>
-            <a href="../account/login.html">Login</a>
+            <a href="/account/login.html">Login</a>
         </nav>
         <div class="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
-        <div class="side-menu" id="sideMenu" style="display: none;">
+        <div class="side-menu" id="sideMenu">
             <span class="close">&times;</span>
-            <a href="../HTML/all-posts.html">Blog</a>
+            <div class="search-bar search-bar-hamburger">
+                <input type="text" id="searchInputHamburger" placeholder="Search posts..." autocomplete="off" />
+                <div id="suggestionsHamburger" class="suggestions"></div>
+            </div>
+            <a href="all-posts.html">Blog</a>
+            <a href="/HTML/map.html">Map</a> 
             <a href="">About</a>
-            <a href="../account/login.html">Login</a>
+            <a href="/account/login.html">Login</a>
         </div>
     </header>
     
