@@ -152,3 +152,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     await displayPopularPosts();
     startCarousel();
 });
+
+function setupDiscoverButton() {
+    const discoverButton = document.querySelector('.dynamic-carousel-container .discover-button');
+
+    if (!discoverButton) {
+        console.error("Discover button not found");
+        return;
+    }
+
+    discoverButton.addEventListener('click', () => {
+        if (carouselPosts.length > 0) {
+            const currentPost = carouselPosts[currentIndex];
+            if (currentPost && currentPost.id) {
+                window.location.href = `./HTML/one-post.html?id=${currentPost.id}`;
+            } else {
+                console.error("Current post data is missing or invalid");
+            }
+        } else {
+            console.error("No posts available for the carousel");
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await displayLatestPosts();
+    await displayPopularPosts();
+    await startCarousel();
+    setupDiscoverButton();
+});
