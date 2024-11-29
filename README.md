@@ -32,9 +32,7 @@ Contributing
 
 Contributions are welcome! If you have suggestions for improvements, please feel free to create a pull request or open an issue.
 
-License
 
-This project is licensed under the ISC License.
 
 
 
