@@ -43,6 +43,10 @@ This project is licensed under the ISC License.
 
 3. Open `index.html` in your web browser to view the application.
 
-## Contribution
-Contributions are welcome! Please feel free to submit a pull request or create an issue if you have suggestions or improvements.
+## Sources
+
+- [W3Schools](https://www.w3schools.com/) - General web development resources and examples.
+- ChatGPT - Assistance and explanations for functionality and implementation.
+- [Programming with Mosh](https://www.youtube.com/@programmingwithmosh) - Tutorials and guidance on JavaScript concepts.
+- Rewatch of school lectures - Review of course material for better understanding.
 
