@@ -74,6 +74,10 @@ html, body {
 }
 
 @media screen and (max-width: 600px) {
+    .carousel-text h1 {
+        padding-left: 10px;
+        padding-right: 20px;
+    }
 
     .carousel-text p {
         font-size: 1rem;
