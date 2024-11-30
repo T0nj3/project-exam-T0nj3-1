@@ -29,7 +29,6 @@ async function displayLatestPosts() {
     }
 }
 
-
 async function displayPopularPosts() {
     allPosts = await fetchPosts();
     const popularPosts = allPosts
@@ -57,9 +56,6 @@ async function displayPopularPosts() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-    await displayPopularPosts();
-});
 async function getLatestPostsForCarousel() {
     const latestPosts = allPosts
         .sort((a, b) => new Date(b.created) - new Date(a.created))
@@ -81,7 +77,7 @@ async function renderCarousel() {
     carouselPosts = await getLatestPostsForCarousel();
 
     if (carouselPosts.length === 0) {
-        console.error("no posts found for carousel");
+        console.error("No posts found for carousel");
         return;
     }
 
@@ -106,10 +102,7 @@ async function renderCarousel() {
     mainImageContainer.innerHTML = "Loading...";
 
     setTimeout(() => {
-        mainImageContainer.style.backgroundImage = currentPost.media.url
-            ? `url(${currentPost.media.url})`
-            : "url('default.jpg')";
-        
+        mainImageContainer.style.backgroundImage = `url(${currentPost.media.url})`;
         mainImageContainer.innerHTML = "";
         introduce.querySelector('.continent').textContent = currentPost.continent || "Unknown";
         introduce.querySelector('.place').textContent = currentPost.title || "No title";
@@ -147,12 +140,6 @@ function startCarousel() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-    await displayLatestPosts();
-    await displayPopularPosts();
-    startCarousel();
-});
-
 function setupDiscoverButton() {
     const discoverButton = document.querySelector('.dynamic-carousel-container .discover-button');
 
@@ -178,6 +165,6 @@ function setupDiscoverButton() {
 document.addEventListener("DOMContentLoaded", async () => {
     await displayLatestPosts();
     await displayPopularPosts();
-    await startCarousel();
+    startCarousel();
     setupDiscoverButton();
 });
